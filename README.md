@@ -42,7 +42,10 @@ Browser-style application
 Code editor simulation
 Paint application
 Responsive mobile warning for the desktop-focused experience
-Project Structure
+
+## Project Structure
+
+```text
 src/
 ├── apps/
 │   ├── Resume/
@@ -89,6 +92,7 @@ src/
 └── styles/
     ├── global.css
     └── shared doc-content.module.css
+```
 Run Locally
 
 Clone the repository:
