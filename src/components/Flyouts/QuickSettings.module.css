@@ -1,0 +1,70 @@
+.flyout {
+  position: fixed;
+  bottom: 56px;
+  right: 10px;
+  width: 300px;
+  background: rgba(246, 246, 246, 0.92);
+  backdrop-filter: blur(24px) saturate(150%);
+  border-radius: 10px;
+  box-shadow: var(--shadow-flyout);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 16px;
+  z-index: 1500;
+  color: #222;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.tile {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  padding: 10px 6px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.12s;
+  border: 1px solid transparent;
+}
+
+.tile:hover {
+  background: rgba(0, 0, 0, 0.09);
+}
+
+.tile.active {
+  background: rgba(0, 120, 215, 0.15);
+  border-color: rgba(0, 120, 215, 0.4);
+}
+
+.tile i {
+  font-size: 17px;
+  display: block;
+  margin-bottom: 6px;
+  color: var(--accent);
+}
+
+.tile span {
+  font-size: 10.5px;
+  color: #333;
+}
+
+.sliderRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.sliderRow i {
+  width: 18px;
+  color: #444;
+  font-size: 14px;
+}
+
+.sliderRow input[type='range'] {
+  flex: 1;
+  accent-color: var(--accent);
+}

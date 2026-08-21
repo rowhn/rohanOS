@@ -1,0 +1,47 @@
+.icon {
+  background: transparent;
+  padding: 8px 4px;
+  width: 84px;
+  text-align: center;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.12s;
+  border: 1px solid transparent;
+  user-select: none;
+}
+
+.icon:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.icon.selected {
+  background: rgba(0, 120, 215, 0.35);
+  border: 1px solid rgba(0, 120, 215, 0.6);
+}
+
+.icon i {
+  font-size: 32px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.icon.large {
+  width: 104px;
+}
+
+.icon.large i {
+  font-size: 44px;
+}
+
+.icon.large p {
+  font-size: 13px;
+}
+
+.icon p {
+  font-size: 12px;
+  color: white;
+  margin-top: 5px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+  font-weight: 500;
+  line-height: 1.2;
+}

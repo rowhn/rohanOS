@@ -1,0 +1,21 @@
+.editor {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  height: 100%;
+  margin: -22px -26px;
+  padding: 20px 26px;
+}
+
+.pre {
+  white-space: pre-wrap;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.kw { color: #569cd6; }
+.var { color: #4fc1ff; }
+.prop { color: #9cdcfe; }
+.str { color: #ce9178; }
+.fn { color: #dcdcaa; }

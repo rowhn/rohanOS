@@ -1,0 +1,378 @@
+.notes {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #ffffff;
+
+  color: #202020;
+
+  font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  overflow: hidden;
+}
+
+/* ------------------------------------------------ */
+/* Toolbar                                          */
+/* ------------------------------------------------ */
+
+.toolbar {
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 7px 12px;
+
+  background: #f7f7f7;
+
+  border-bottom: 1px solid #dedede;
+
+  flex-shrink: 0;
+}
+
+.navigation {
+  display: flex;
+
+  gap: 2px;
+}
+
+.navButton {
+  width: 34px;
+  height: 34px;
+
+  border: none;
+
+  background: transparent;
+
+  border-radius: 5px;
+
+  font-size: 27px;
+
+  color: #555;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navButton:hover {
+  background: #e8e8e8;
+}
+
+.addressBar {
+  flex: 1;
+
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 0 12px;
+
+  background: #ffffff;
+
+  border: 1px solid #d4d4d4;
+
+  border-radius: 4px;
+
+  font-size: 13px;
+
+  color: #444;
+}
+
+.folderIcon {
+  font-size: 15px;
+}
+
+.separator {
+  color: #999;
+
+  font-size: 16px;
+}
+
+.searchButton {
+  width: 34px;
+  height: 34px;
+
+  border: none;
+
+  background: transparent;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  font-size: 15px;
+}
+
+.searchButton:hover {
+  background: #e8e8e8;
+}
+
+/* ------------------------------------------------ */
+/* Main body                                        */
+/* ------------------------------------------------ */
+
+.body {
+  flex: 1;
+
+  min-height: 0;
+
+  display: flex;
+}
+
+/* ------------------------------------------------ */
+/* Sidebar                                          */
+/* ------------------------------------------------ */
+
+.sidebar {
+  width: 210px;
+
+  flex-shrink: 0;
+
+  background: #f5f5f5;
+
+  border-right: 1px solid #dedede;
+
+  padding: 14px 8px;
+
+  overflow-y: auto;
+}
+
+.sidebarTitle {
+  padding: 4px 10px 12px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  color: #444;
+}
+
+.fileList {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.fileItem {
+  width: 100%;
+
+  min-height: 42px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 7px 10px;
+
+  border: none;
+
+  border-radius: 5px;
+
+  background: transparent;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  color: #333;
+
+  font-family: inherit;
+}
+
+.fileItem:hover {
+  background: #e8e8e8;
+}
+
+.fileItem.selected {
+  background: #dbeafe;
+
+  color: #145dbf;
+}
+
+.fileIcon {
+  width: 24px;
+
+  font-size: 18px;
+
+  flex-shrink: 0;
+}
+
+.fileName {
+  font-size: 12px;
+
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+/* ------------------------------------------------ */
+/* Viewer                                           */
+/* ------------------------------------------------ */
+
+.viewer {
+  flex: 1;
+
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  background: #ffffff;
+}
+
+.viewerHeader {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 15px 20px;
+
+  border-bottom: 1px solid #eeeeee;
+
+  background: #fafafa;
+}
+
+.viewerIcon {
+  font-size: 27px;
+}
+
+.viewerTitle {
+  font-size: 14px;
+
+  font-weight: 600;
+
+  color: #222;
+}
+
+.viewerSubtitle {
+  margin-top: 2px;
+
+  font-size: 11px;
+
+  color: #888;
+}
+
+/* ------------------------------------------------ */
+/* Document                                         */
+/* ------------------------------------------------ */
+
+.document {
+  flex: 1;
+
+  overflow-y: auto;
+
+  padding: 30px 38px;
+
+  line-height: 1.6;
+
+  font-size: 13px;
+}
+
+.documentTitle {
+  margin: 0 0 20px;
+
+  font-size: 23px;
+
+  line-height: 1.25;
+
+  font-weight: 650;
+
+  color: #202020;
+}
+
+.document p {
+  margin: 0;
+
+  color: #3b3b3b;
+}
+
+.spacer {
+  height: 9px;
+}
+
+/* ------------------------------------------------ */
+/* Status bar                                       */
+/* ------------------------------------------------ */
+
+.statusBar {
+  height: 28px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 0 12px;
+
+  border-top: 1px solid #dedede;
+
+  background: #f5f5f5;
+
+  color: #777;
+
+  font-size: 10px;
+
+  flex-shrink: 0;
+}
+
+/* ------------------------------------------------ */
+/* Scrollbar                                        */
+/* ------------------------------------------------ */
+
+.document::-webkit-scrollbar,
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.document::-webkit-scrollbar-thumb,
+.sidebar::-webkit-scrollbar-thumb {
+  background: #c7c7c7;
+
+  border-radius: 5px;
+}
+
+.document::-webkit-scrollbar-thumb:hover,
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+/* ------------------------------------------------ */
+/* Responsive                                       */
+/* ------------------------------------------------ */
+
+@media (max-width: 650px) {
+  .sidebar {
+    width: 155px;
+  }
+
+  .document {
+    padding: 22px;
+  }
+
+  .documentTitle {
+    font-size: 19px;
+  }
+}

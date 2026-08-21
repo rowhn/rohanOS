@@ -1,0 +1,100 @@
+.window {
+  position: absolute;
+  min-width: 320px;
+  min-height: 300px;
+  background-color: #f3f3f3;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  box-shadow: var(--shadow-window);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  resize: both;
+  animation: winOpen 0.16s ease-out;
+}
+
+@keyframes winOpen {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.titleBar {
+  height: 34px;
+  background: linear-gradient(to bottom, #fbfbfb, #e4e4e4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4px 0 12px;
+  border-bottom: 1px solid #d3d3d3;
+  cursor: default;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.titleText {
+  font-size: 13px;
+  font-weight: 500;
+  color: #222;
+}
+
+.controls {
+  display: flex;
+  height: 100%;
+}
+
+.controls button {
+  width: 42px;
+  height: 34px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  color: #333;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.controls button:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.closeBtn:hover {
+  background: #e81123 !important;
+  color: #fff;
+}
+
+.minIcon {
+  width: 10px;
+  height: 0;
+  border-bottom: 1.4px solid #333;
+  display: block;
+}
+
+.maxIcon {
+  width: 9px;
+  height: 9px;
+  border: 1.4px solid #333;
+  display: block;
+}
+
+.body {
+  flex: 1;
+  background-color: white;
+  padding: 22px 26px;
+  overflow-y: auto;
+  font-size: 14px;
+  color: #222;
+  line-height: 1.55;
+}
+
+.bodyFlush {
+  padding: 0;
+  overflow: hidden;
+}

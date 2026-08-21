@@ -1,0 +1,57 @@
+:root {
+  --accent: #0078d7;
+  --accent-hover: #106ebe;
+  --taskbar-bg: rgba(23, 23, 26, 0.72);
+  --surface: #f3f3f3;
+  --surface-translucent: rgba(243, 243, 243, 0.82);
+  --text-dark: #222;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --shadow-window: 0 20px 50px rgba(0, 0, 0, 0.45);
+  --shadow-flyout: 0 16px 40px rgba(0, 0, 0, 0.4);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  color: #fff;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: rgba(0, 120, 215, 0.4);
+}
+
+a {
+  color: inherit;
+}
+
+.scrollable::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background: #c7c7c7;
+  border-radius: 6px;
+}
+
+.scrollable::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}

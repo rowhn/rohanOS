@@ -1,0 +1,378 @@
+.stage {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(0px);
+  transition: backdrop-filter 0.6s ease, background 0.6s ease;
+  z-index: 0;
+}
+
+.overlay.blurred {
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(22px) saturate(120%);
+}
+
+/* ---- Lock stage ---- */
+.lockScreen {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 60px 70px;
+  cursor: pointer;
+  user-select: none;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.35) 100%);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.lockScreen.hide {
+  opacity: 0;
+  transform: scale(1.03);
+  pointer-events: none;
+}
+
+.lockClock {
+  font-size: 96px;
+  font-weight: 200;
+  line-height: 1;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+  letter-spacing: 1px;
+}
+
+.lockDate {
+  font-size: 26px;
+  margin-top: 6px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+.lockHint {
+  margin-top: 40px;
+  font-size: 14px;
+  opacity: 0.85;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+.lockCorner {
+  position: absolute;
+  top: 32px;
+  right: 40px;
+  display: flex;
+  gap: 22px;
+  font-size: 17px;
+  opacity: 0.9;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.lockBottomIcons {
+  position: absolute;
+  bottom: 34px;
+  right: 40px;
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  font-size: 17px;
+  opacity: 0.95;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* ---- Sign-in stage ---- */
+.signIn {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadeUp 0.5s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.profile {
+  text-align: center;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  image-rendering: pixelated;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.name {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.status {
+  font-size: 13px;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.inputGroup {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  padding: 0 5px;
+  width: 280px;
+  height: 40px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.inputGroup:focus-within {
+  background: #fff;
+  border-color: #fff;
+}
+
+.inputGroup:focus-within .pinInput {
+  color: #111;
+}
+
+.pinInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  padding: 0 10px;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.pinInput::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: normal;
+}
+
+.submitBtn {
+  color: #fff;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.inputGroup:focus-within .submitBtn {
+  color: #333;
+  opacity: 1;
+}
+
+.pinHint {
+  font-size: 12px;
+  opacity: 0.55;
+  margin-top: -10px;
+  text-align: center;
+}
+
+.signinOptions {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.signinOptions p {
+  font-size: 13px;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+.optionButtons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.optionBtn {
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid transparent;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 18px;
+}
+
+.optionBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.optionBtn.selected {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.userList {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.userItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.userItem:hover,
+.userItem.active {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.userItem img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.userItem span {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.footerActions {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  display: flex;
+  gap: 25px;
+}
+
+.actionBtn {
+  font-size: 24px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.actionBtn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* ---- Welcome notification ---- */
+.notifications {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2;
+  width: 300px;
+}
+
+.notifCard {
+  background: #fff;
+  color: #333;
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  margin-bottom: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  animation: slideIn 0.35s ease-out;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.notifHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.notifTitle {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.notifClose {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  color: #666;
+  cursor: pointer;
+}
+
+.notifBody {
+  padding: 12px;
+  font-size: 13px;
+}
+
+.notifSub {
+  margin-top: 6px;
+  color: #666;
+  font-size: 12px;
+}
+
+.notifFooter {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.85);
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  .lockClock { font-size: 64px; }
+  .lockDate { font-size: 18px; }
+  .lockScreen { padding: 40px 30px; }
+  .lockCorner, .lockBottomIcons { right: 20px; }
+}
