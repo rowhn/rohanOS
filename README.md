@@ -1,52 +1,161 @@
-A Windows-style desktop portfolio built with React and Vite. The portfolio recreates a modern desktop operating system experience with draggable windows, taskbar interactions, a Start menu, desktop applications, games, personalization, and external profile shortcuts.
+# Rohan Dohe — Portfolio OS
 
-Live Demo
+<div align="center">
 
-https://rohanos.vercel.app/
+### An interactive Windows-style portfolio built with React and Vite.
 
-Tech Stack
-React
-Vite
-JavaScript
-CSS Modules
-Context API
-Font Awesome
-HTML5
-CSS3
-Features
-Windows-style desktop interface
-Lock screen and boot animation
-Draggable, resizable, minimizable, maximizable, and focusable windows
-Window snapping and window management
-Start menu
-Taskbar with running applications
-Desktop shortcuts
-Search functionality
-Quick settings and calendar flyouts
-Fullscreen mode
-Desktop experience notice for mobile users
-Customizable wallpapers
-Right-click desktop context menu
-Resume and portfolio information
-GitHub and LinkedIn shortcuts
-Project showcase
-Skills and certifications
-Contact section
-Built-in applications
-Mini-games:
-Snake
-Tic-Tac-Toe
-Memory Match
-Recycle Bin simulation
-Browser-style application
-Code editor simulation
-Paint application
-Responsive mobile warning for the desktop-focused experience
+A desktop-inspired developer portfolio where your resume, projects, skills, experience, games, and social profiles live inside a fully interactive operating-system interface.
+
+<br />
+
+[**Live Portfolio**](https://rohanos.vercel.app/)   ·   [**GitHub Repository**](https://github.com/rowhn/windows_screen_portfolio)
+
+<br /><br />
+
+![React](https://img.shields.io/badge/React-2026-61DAFB?style=for-the-badge\&logo=react\&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge\&logo=vite\&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge\&logo=javascript\&logoColor=black)
+![CSS Modules](https://img.shields.io/badge/CSS_Modules-Styling-264DE4?style=for-the-badge\&logo=css3\&logoColor=white)
+![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000000?style=for-the-badge\&logo=vercel\&logoColor=white)
+
+</div>
+
+---
+
+## About
+
+**Portfolio OS** is a desktop-style personal portfolio designed to feel less like a traditional website and more like an interactive operating system.
+
+Instead of navigating through conventional pages, visitors interact with a virtual desktop containing applications, windows, a taskbar, Start menu, system tray, personalization tools, and built-in games.
+
+The project was built to demonstrate practical React architecture, state management, component design, UI engineering, animations, and interactive frontend development.
+
+---
+
+## Live Experience
+
+<div align="center">
+
+### [Open Portfolio OS](https://rohanos.vercel.app/)
+
+**Best experienced on a laptop or desktop.**
+
+</div>
+
+---
+
+## Features
+
+### Desktop Experience
+
+* Windows-style desktop interface
+* Boot animation and lock screen
+* Desktop shortcuts
+* Start menu
+* Taskbar with running applications
+* System tray
+* Clock and calendar flyout
+* Quick settings flyout
+* Show Desktop functionality
+* Fullscreen mode
+* Desktop context menu
+
+### Window Management
+
+* Draggable windows
+* Resizable windows
+* Minimize and maximize
+* Window focusing and z-index management
+* Window snapping
+* Multiple simultaneous applications
+* Dynamic taskbar state
+
+### Portfolio Applications
+
+The desktop contains dedicated applications for:
+
+* Resume
+* About
+* Experience
+* Projects
+* Skills
+* Certifications
+* Contact
+* File Explorer
+* Browser
+* Code Editor
+* Paint
+* Personalization
+* Recycle Bin
+
+### Games
+
+A built-in Games Hub contains:
+
+* Snake
+* Tic-Tac-Toe
+* Memory Match
+
+### Personalization
+
+* Custom wallpapers
+* Wallpaper switching
+* Desktop context menu
+* OS-style personalization experience
+
+### External Profiles
+
+GitHub and LinkedIn are integrated as external applications.
+
+Selecting them opens the corresponding profile in a new browser tab instead of an internal portfolio window.
+
+---
+
+## Tech Stack
+
+| Technology   | Purpose                                         |
+| ------------ | ----------------------------------------------- |
+| React        | UI architecture and component development       |
+| Vite         | Development environment and production bundling |
+| JavaScript   | Application logic                               |
+| CSS Modules  | Component-scoped styling                        |
+| Context API  | Global application state                        |
+| Font Awesome | Interface icons                                 |
+| Vercel       | Production deployment                           |
+
+---
+
+## Architecture
+
+The application is structured around an **OS shell + independent applications** architecture.
+
+```text
+                         Portfolio OS
+                              │
+              ┌───────────────┴───────────────┐
+              │                               │
+          OS Shell                       Applications
+              │                               │
+      ┌───────┼────────┐              ┌───────┼────────┐
+      │       │        │              │       │        │
+   Desktop  Taskbar  Start Menu     Resume  Projects  Games
+      │
+      ├── Window Manager
+      ├── Context Menu
+      ├── Flyouts
+      ├── Wallpaper System
+      └── Power System
+```
+
+This separation allows individual portfolio sections to behave like applications running inside the desktop environment.
+
+---
 
 ## Project Structure
 
 ```text
 src/
+│
 ├── apps/
 │   ├── Resume/
 │   ├── About/
@@ -93,81 +202,165 @@ src/
     ├── global.css
     └── shared doc-content.module.css
 ```
-Run Locally
 
-Clone the repository:
+---
 
+## Window Management
+
+The core of the portfolio is the window management system.
+
+The `WindowManagerContext` controls:
+
+* Opening applications
+* Closing applications
+* Minimizing windows
+* Maximizing windows
+* Focusing windows
+* Z-index management
+* Window positioning
+* Window state
+* Taskbar synchronization
+* Window snapping
+
+This allows every application to behave like a native desktop window.
+
+---
+
+## Application Registry
+
+Application metadata is centralized in:
+
+```text
+src/data/appRegistry.js
+```
+
+The registry defines information such as:
+
+```text
+Application
+├── ID
+├── Title
+├── Icon
+├── Color
+├── Type
+└── Launch behavior
+```
+
+This makes adding new desktop applications significantly easier without modifying the core window manager.
+
+---
+
+## Games
+
+The built-in games are organized under:
+
+```text
+src/apps/Games/
+```
+
+The Games Hub provides a single entry point for launching the individual games.
+
+Current games:
+
+```text
+Games Hub
+├── Snake
+├── Tic-Tac-Toe
+└── Memory Match
+```
+
+---
+
+## Personalization
+
+The wallpaper system is managed through:
+
+```text
+WallpaperContext
+```
+
+Users can access personalization from the desktop context menu and switch between available wallpapers without leaving the desktop environment.
+
+---
+
+## Responsive Experience
+
+The portfolio is intentionally designed as a **desktop-first OS experience**.
+
+The window-based interface is optimized for laptop and desktop screens where there is enough space for multiple applications and desktop interactions.
+
+Mobile visitors receive a dedicated desktop-experience notice explaining the intended viewing environment.
+
+---
+
+## Running Locally
+
+### Clone
+
+```bash
 git clone https://github.com/rowhn/windows_screen_portfolio.git
 cd windows_screen_portfolio
+```
 
-Install dependencies:
+### Install dependencies
 
+```bash
 npm install
+```
 
-Start the development server:
+### Start development server
 
+```bash
 npm run dev
+```
 
-Create a production build:
+### Create production build
 
+```bash
 npm run build
+```
 
-Preview the production build:
+### Preview production build
 
+```bash
 npm run preview
-Deployment
+```
 
-The portfolio is deployed using Vercel and connected directly to the GitHub repository.
+---
 
-Every new push to the main branch automatically triggers a new production deployment.
+## Deployment
 
-Application Architecture
+The application is deployed on **Vercel** and connected directly to the GitHub repository.
 
-The portfolio is structured as an operating-system-style shell rather than a traditional single-page portfolio.
+Production URL:
 
-The main OS shell handles:
+**https://rohanos.vercel.app/**
 
-Session and lock-screen state
-Window management
-Desktop state
-Taskbar
-Start menu
-Context menus
-Flyouts
-Wallpaper management
-Power states
-Fullscreen functionality
+Every push to the `main` branch triggers a new production deployment.
 
-Individual portfolio sections are implemented as independent applications that can be opened inside the desktop window manager.
+```text
+Local Development
+       │
+       ▼
+     Git
+       │
+       ▼
+    GitHub
+       │
+       ▼
+    Vercel
+       │
+       ▼
+Production
+```
 
-External Applications
+---
 
-GitHub and LinkedIn are registered as external applications in:
+## Portfolio Content
 
-src/data/appRegistry.js
+The OS currently includes:
 
-Clicking these shortcuts opens the corresponding profile in a new browser tab rather than creating an internal OS window.
-
-Games
-
-The built-in games are located under:
-
-src/apps/Games/
-
-They are launched through the Games Hub application.
-
-Personalization
-
-The desktop supports wallpaper customization through:
-
-WallpaperContext
-
-Users can access personalization through the desktop context menu and change the active wallpaper.
-
-Portfolio
-
-The portfolio includes:
-
+```text
 Resume
 About
 Experience
@@ -177,16 +370,36 @@ Certifications
 Contact
 GitHub
 LinkedIn
-Author
+```
 
-Rohan Dohe
+All portfolio content is presented through the operating-system interface rather than traditional website sections.
 
-MERN Stack Developer
+---
 
-GitHub: https://github.com/rowhn
+## Author
 
-LinkedIn: linkedin.com/in/rohan-dohe-68965a233
+<div align="center">
 
-License
+### Rohan Dohe
 
-This project is intended as a personal portfolio and demonstration of frontend and React development skills.
+**MERN Stack Developer**
+
+Building full-stack applications and interactive web experiences with React, Node.js, Express, and MongoDB.
+
+<br />
+
+[GitHub](https://github.com/rowhn) · [LinkedIn](https://linkedin.com/in/rohan-dohe-68965a233) · [Portfolio](https://rohanos.vercel.app/)
+
+</div>
+
+---
+<img width="1920" height="971" alt="Screenshot 2026-08-21 160123" src="https://github.com/user-attachments/assets/f63d7d48-d7c6-4eb1-88d9-9739681d45a3" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7fb8d042-f1b1-4f7d-941c-427c7de71cf0" />
+
+<img width="1920" height="963" alt="Screenshot 2026-08-21 124341" src="https://github.com/user-attachments/assets/026dc370-835d-457a-b8d7-c972d1d7fb70" />
+
+
+## License
+
+This project is a personal portfolio and demonstration of frontend engineering, React architecture, UI development, and interactive web application design.
